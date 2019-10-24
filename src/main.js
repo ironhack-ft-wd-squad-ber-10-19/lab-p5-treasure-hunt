@@ -63,7 +63,10 @@ function draw() {
   clear();
   game.drawGrid();
   treasure.drawTreasure();
+  push();
+  tint(90, 225, 255);
   player1.draw();
+  pop();
   player2.draw();
 }
   
