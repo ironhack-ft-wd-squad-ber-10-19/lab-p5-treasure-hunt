@@ -1,7 +1,12 @@
 class Game {
   drawGrid() {
-    // Iteration 1
-    // Draw the grid
-    // https://p5js.org/reference/#/p5/line
+    strokeWeight(3);
+    stroke("grey");
+    for (let i = 0; i <= WIDTH; i += SIDE) {
+      line(1 * i, 0, 1 * i, HEIGHT);
+    }
+    for (let i = 0; i <= WIDTH; i += SIDE) {
+      line(0, 1 * i, width, 1 * i);
+    }
   }
 }
