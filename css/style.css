@@ -1,10 +1,72 @@
+* {
+  font-family: Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
+  margin: 20px;
+  margin-left: auto;
+  margin-right: auto;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  width: 700px;
+  height: 900px;
+  letter-spacing: 2px;
 }
 
 h1 {
   font-weight: 100;
+}
+
+
+div {
+  width: 700px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8em;
+}
+
+.player1 {
+  color: red;
+}
+
+.player2 {
+  color: green;
+}
+
+.player3 {
+  color: blue;
+}
+
+.player4 {
+  color: orange;
+}
+
+h2 {
+  text-align: center;
+  font-size: 1.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid white;
+  border-radius: 20px;
+  padding: 20px;
+  background-image: url(/assets/abstract-wooden-seamless-texture-background_23-2148283204\ \(1\).jpg);
+  background-size: cover;
+  box-shadow: 5px 5px 5px lightgray;
+  text-shadow: 2px 2px 2px black;
+}
+
+h2 span {
+  color: white;
+  font-size: 3em;
 }
