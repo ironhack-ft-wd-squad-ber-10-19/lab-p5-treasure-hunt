@@ -12,10 +12,14 @@ class Game {
   }
 }
 
+// Images
 let imgUp;
 let imgDown;
 let imgLeft;
 let imgRight;
+// Score
+let score1 = 0,
+  score2 = 0;
 
 class Player {
   constructor(x, y) {
@@ -80,9 +84,17 @@ class Treasure {
   }
 
   drawTreasure() {
-    this.x === player.col && this.y === player.row
+    this.x === player1.col && this.y === player1.row
       ? ((this.x = this.setRandomPosition()),
-        (this.y = this.setRandomPosition()))
+        ((this.y = this.setRandomPosition()), scorePlayer1),
+        (score1 += 1),
+        (scorePlayer1.innerText = score1))
+      : null;
+    this.x === player2.col && this.y === player2.row
+      ? ((this.x = this.setRandomPosition()),
+        ((this.y = this.setRandomPosition()), scorePlayer1),
+        (score2 += 1),
+        (scorePlayer2.innerText = score2))
       : null;
     image(this.imgTreasure, this.x, this.y, SQUARE_SIDE, SQUARE_SIDE);
   }
