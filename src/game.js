@@ -83,18 +83,19 @@ class Treasure {
     return randomPosition;
   }
 
+  redrawTreasure(score, scoreBox) {
+    this.x = this.setRandomPosition();
+    this.y = this.setRandomPosition();
+    score += 1;
+    scoreBox.innerText = score;
+  }
+
   drawTreasure() {
     this.x === player1.col && this.y === player1.row
-      ? ((this.x = this.setRandomPosition()),
-        ((this.y = this.setRandomPosition()), scorePlayer1),
-        (score1 += 1),
-        (scorePlayer1.innerText = score1))
+      ? this.redrawTreasure(score1, scorePlayer1)
       : null;
     this.x === player2.col && this.y === player2.row
-      ? ((this.x = this.setRandomPosition()),
-        ((this.y = this.setRandomPosition()), scorePlayer1),
-        (score2 += 1),
-        (scorePlayer2.innerText = score2))
+      ? this.redrawTreasure(score2, scorePlayer2)
       : null;
     image(this.imgTreasure, this.x, this.y, SQUARE_SIDE, SQUARE_SIDE);
   }
