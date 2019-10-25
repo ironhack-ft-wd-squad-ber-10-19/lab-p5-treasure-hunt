@@ -2,7 +2,10 @@ const game = new Game();
 let player = new Player(0, 0);
 let treasure = new Treasure();
 
-let img;
+let imgS;
+let imgN;
+let imgE;
+let imgW;
 let imgTreasure;
 
 function setup() {
@@ -11,7 +14,10 @@ function setup() {
 }
 
 function preload() {
-  img = loadImage("./assets/character-down.png");
+  imgS = loadImage("./assets/character-down.png");
+  imgN = loadImage("./assets/character-up.png");
+  imgE = loadImage("./assets/character-right.png");
+  imgW = loadImage("./assets/character-left.png"); 
   imgTreasure = loadImage("./assets/treasure.png");
 }
 
@@ -19,6 +25,8 @@ function draw() {
   game.drawGrid();
   player.draw();
   treasure.draw();
+  player.newGame();
+  treasure.newGame();
 }
 
 function keyPressed() {
