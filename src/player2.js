@@ -1,32 +1,11 @@
-class Game {
-  drawGrid() {
-    // Iteration 1
-    // Draw the grid
-    // https://p5js.org/reference/#/p5/line
-
-    let x = 0;
-    let y = 0;
-
-    stroke("grey");
-
-    for (x = 0; x <= HEIGHT; x += SQUARE_SIDE) {
-      line(x, 0, x, WIDTH);
-    }
-
-    for (y = 0; y <= HEIGHT; y += SQUARE_SIDE) {
-      line(0, y, WIDTH, y);
-    }
-  }
-}
-
-class Player {
+class Player2 {
   constructor(row, col) {
     this.col = col;
     this.row = row;
   }
 
   preload() {
-    console.log("player is Preloaded");
+    console.log("player2 is Preloaded");
     this.playerDown = loadImage("assets/character-down.png");
     this.playerUp = loadImage("assets/character-up.png");
     this.playerleft = loadImage("assets/character-left.png");
@@ -72,44 +51,17 @@ class Player {
   }
 
   keyPressed() {
-    if (keyCode == 39) {
+    if (keyCode == 68) {
       this.moveRight();
     }
-    if (keyCode == 37) {
+    if (keyCode == 65) {
       this.moveLeft();
     }
-    if (keyCode == 38) {
+    if (keyCode == 87) {
       this.moveUp();
     }
-    if (keyCode == 40) {
+    if (keyCode == 83) {
       this.moveDown();
     }
-  }
-}
-
-class Treasure {
-  constructor(row, col) {
-    this.row = row;
-    this.col = col;
-  }
-  setRandomPosition() {
-    this.row = Math.floor(Math.random() * 10);
-    this.col = Math.floor(Math.random() * 10);
-    console.log(this.row, this.col);
-  }
-
-  preload() {
-    console.log("Treasure is Preloaded");
-    this.treasureImg = loadImage("assets/treasure.png");
-  }
-
-  drawTreasure() {
-    image(
-      this.treasureImg,
-      this.row * SQUARE_SIDE,
-      this.col * SQUARE_SIDE,
-      SQUARE_SIDE,
-      SQUARE_SIDE
-    );
   }
 }
