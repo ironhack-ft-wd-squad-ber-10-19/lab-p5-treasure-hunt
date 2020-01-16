@@ -49,11 +49,7 @@ class Player {
     this.playerImage = charRight;
   }
 
-  // preload() {
-  //   this.playerImage = loadImage("./assets/character-down.png");
-  // }
   draw() {
-    console.log(this.col, this.row);
     image(
       this.playerImage || charDown,
       this.col,
@@ -65,14 +61,23 @@ class Player {
 }
 
 class Treasure {
-  constructor(col, row) {
-    this.col = col;
-    this.row = row;
-    this.treasureImage = imageOfTreasure;
+  constructor() {
+    this.col = Math.floor(Math.random() * 10) * 100;
+    this.row = Math.floor(Math.random() * 10) * 100;
   }
 
-  
-    draw() {
-      image(this.treasureImage,)
+  draw() {
+    image(imageOfTreasure, this.col, this.row, 100, 100);
+  }
+  positionRandomly() {
+    this.col = Math.floor(Math.random() * 10) * 100;
+    this.row = Math.floor(Math.random() * 10) * 100;
+    this.draw();
+  }
+  checkIfPlayerGotIt() {
+    if (player.row === this.row && player.col === this.col) {
+      this.positionRandomly();
+      console.log("yup");
+    }
   }
 }
