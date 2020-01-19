@@ -12,12 +12,12 @@ class Game {
     // https://p5js.org/reference/#/p5/line
 
     //horizontal lines
-    for (let y = 0; y <= WIDTH; y += SQUARE_SIDE) {
+    for (let y = 0; y <= width; y += SQUARE_SIDE) {
       line(0, y, WIDTH, y);
     }
 
     //vertical lines
-    for (let x = 0; x <= HEIGHT; x += SQUARE_SIDE) {
+    for (let x = 0; x <= height; x += SQUARE_SIDE) {
       line(x, 0, x, HEIGHT);
     }
   }
