@@ -45,11 +45,29 @@ class Player{
   console.log(this.col, this.row);
   }
   drawPlayer(){
-    image(img,this.col,this.row,100,100);
+    image(img,this.col,this.row,SQUARE_SIDE,SQUARE_SIDE);
   }
 
 }
 
-let newPlayer = new Player(0,0);
-newPlayer.moveDown();
-newPlayer.moveDown();
+class Treasure{
+  constructor(col, row){
+    this.col = col;
+    this.row = row;
+  }
+  setRandomPosition(){
+   this.row = Math.floor(Math.random() * 10) * 100;
+   this.col = Math.floor(Math.random() * 10) * 100;
+   this.drawTreasure();
+  }
+  drawTreasure(){
+    image(treasure,this.col,this.row,SQUARE_SIDE,SQUARE_SIDE);
+  }
+}
+
+
+//newPlayer.moveDown();
+//newPlayer.moveDown();
+//newTreasure.setRandomPosition();
+
+

@@ -1,8 +1,12 @@
 const game = new Game();
+let newPlayer = new Player(0,0);
+let newTreasure = new Treasure(100,100);
 
 let img;
+let treasure;
 function preload() {
   img = loadImage("assets/character-down.png");
+  treasure = loadImage("assets/treasure.png");
 }
 function setup() {
   let canvas = createCanvas(WIDTH, HEIGHT);
@@ -12,6 +16,7 @@ function setup() {
 function draw() {
   game.drawGrid();
   newPlayer.drawPlayer();
+  newTreasure.drawTreasure();
 }
 
 function keyPressed(){
