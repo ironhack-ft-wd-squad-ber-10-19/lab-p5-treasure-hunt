@@ -9,7 +9,19 @@
   </head>
   <body>
     <h1>Splatoon</h1>
-    <div id="canvas"></div>
+    <div >
+      <div>
+        <table>
+          <tr>
+            <th>Score</th>
+            <th class = scoreCount>0</th>
+          </tr>
+        </table>
+      </div>
+      <div id="canvas"></div>
+    </div>
+    <div id="outofbounds">OUT OF BOUNDS!</div>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.8.0/p5.min.js"></script>
     <script src="src/constants.js"></script>
     <script src="src/game.js"></script>

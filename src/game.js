@@ -1,74 +1,103 @@
-class Game {
-  drawGrid() {
-  //Iteration1
-    //Vertical Lines
-    line (0, 0, 0, 1000)
-    line (100, 0, 100, 1000)
-    line (200, 0, 200, 1000)
-    line (300, 0, 300, 1000)
-    line (400, 0, 400, 1000)
-    line (500, 0, 500, 1000)
-    line (600, 0, 600, 1000)
-    line (700, 0, 700, 1000)
-    line (800, 0, 800, 1000)
-    line (900, 0, 900, 1000)
-    line (1000, 0, 1000, 1000)
 
-    //Horizontal Lines
-    line (0, 0, 1000, 0)
-    line (0, 100, 1000, 100)
-    line (0, 200, 1000, 200)
-    line (0, 300, 1000, 300)
-    line (0, 400, 1000, 400)
-    line (0, 500, 1000, 500)
-    line (0, 600, 1000, 600)
-    line (0, 700, 1000, 700)
-    line (0, 800, 1000, 800)
-    line (0, 900, 1000, 900)
-    line (0, 1000, 1000, 1000)
+class Game {
+  init() {
+    this.player = new Player();
+    this.treasure = new Treasure();
+  }
+
+  setup() {
+    this.player.setup();
+    this.treasure.setup();
+  }
+
+  display() {
+    for (let i = 0; i <= WIDTH; i += SQUARE_SIDE) {
+      line(0, i, WIDTH, i);
+      line(i, 0, i, HEIGHT);
+    }
+
+    if (
+      this.player.x === this.treasure.x &&
+      this.player.y === this.treasure.y
+    ) {
+      this.treasure.x =
+        Math.floor((Math.random() * WIDTH) / SQUARE_SIDE) * SQUARE_SIDE;
+      this.treasure.y =
+        Math.floor((Math.random() * WIDTH) / SQUARE_SIDE) * SQUARE_SIDE;
+      document.getElementsByClassName("scoreCount")[0].innerHTML++;
+    }
+
+    if (
+      this.player.x < 0 ||
+      this.player.x > 900 ||
+      this.player.y < 0 ||
+      this.player.y > 900
+    ) {
+      document.getElementById("outofbounds").style.visibility = "visible";
+    } else {
+      document.getElementById("outofbounds").style.visibility = "hidden"
+    }
+
+
+
+    this.player.display();
+    this.treasure.display();
   }
 }
 
-  //Iteration2
-
-
+//Iteration2
 class Player {
-    constructor(initialX, initialY) {
-        this.initialX = initialX;
-        this.initialY = initialY;
-    }
-
-
-    moveUp() {
-        this.initialY -= SQUARE_SIDE;
-    }
-
-    moveDown() {
-      this.initialY += SQUARE_SIDE;
+  constructor() {
+    this.imgDown = loadImage("assets/character-down.png");
+    this.imgUp = loadImage("assets/character-up.png");
+    this.imgLeft = loadImage("assets/character-left.png");
+    this.imgRight = loadImage("assets/character-right.png");
   }
 
-    moveLeft() {
-      this.initialX -= SQUARE_SIDE;
+  setup() {
+    this.img = this.imgDown;
+    this.height = SQUARE_SIDE;
+    this.width = SQUARE_SIDE;
+    this.x = 0;
+    this.y = 0;
   }
 
-    moveRight() {
-      this.initialX += SQUARE_SIDE;
+  display() {
+    image(this.img, this.x, this.y, SQUARE_SIDE, SQUARE_SIDE);
+  }
+
+  moveUp() {
+    this.y -= SQUARE_SIDE;
+    this.img = this.imgUp;
+  }
+
+  moveDown() {
+    this.y += SQUARE_SIDE;
+    this.img = this.imgDown;
+  }
+
+  moveLeft() {
+    this.x -= SQUARE_SIDE;
+    this.img = this.imgLeft;
+  }
+
+  moveRight() {
+    this.x += SQUARE_SIDE;
+    this.img = this.imgRight;
   }
 }
 
 class Treasure {
   constructor() {
-  this.randomX = (Math.floor(Math.random() * 10))*100;
-  this.randomY = (Math.floor(Math.random() * 10))*100;
+    this.img = loadImage("assets/treasure.png");
+  }
+
+  setup() {
+    this.x = randPositionX;
+    this.y = randPositionY;
+  }
+
+  display() {
+    image(this.img, this.x, this.y, SQUARE_SIDE, SQUARE_SIDE);
+  }
 }
- /*  setupimage(image) {
-
-    image(image, this.randomX, this.randomY, SQUARE_SIDE, SQUARE_SIDE);
-
-  } */
-}
-
-    
-const treasure2 = new Treasure;
-
-

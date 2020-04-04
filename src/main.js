@@ -1,59 +1,41 @@
 const game = new Game();
 
-const player1 = new Player (0, 0);
-const treasure1 = new Treasure();
-
 function preload () {
-  img = loadImage(
-    "assets/character-down.png"
-  );
-
-treasure = loadImage(
-  "assets/treasure.png"
-  );
- 
+  game.init();
 }
 
 
 function setup() {
   let canvas = createCanvas(WIDTH, HEIGHT);
   canvas.parent("canvas");
+  game.setup();
 
 }
 
 
-
 function draw() {
   clear();
-  game.drawGrid();
+  game.display();
 
-  image(img, player1.initialX, player1.initialY, SQUARE_SIDE, SQUARE_SIDE);
-
-  image(treasure, treasure1.randomX, treasure1.randomY, SQUARE_SIDE, SQUARE_SIDE);
-
-  if (player1.initialX === treasure1.randomX && player1.initialY === treasure.randomY) {
-    treasure1.randomX = 0
-    treasure1.randomY = 0
-  }
 }
 
 
 function keyPressed() {
 
   if (keyCode === 40) {
-    player1.moveDown();
+    game.player.moveDown();
   }
 
   if (keyCode === 38) {
-    player1.moveUp();
+    game.player.moveUp();
   }
 
   if (keyCode === 39) {
-    player1.moveRight();
+    game.player.moveRight();
   }
 
   if (keyCode === 37) {
-    player1.moveLeft();
+    game.player.moveLeft();
   }
 }
 
