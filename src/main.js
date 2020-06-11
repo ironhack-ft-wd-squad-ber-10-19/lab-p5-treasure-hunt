@@ -2,7 +2,7 @@ const game = new Game();
 
 
 function preload() {
-  game.loadGameImages();
+  game.loadGame();
 }
 function setup() {
   let canvas = createCanvas(WIDTH, HEIGHT);

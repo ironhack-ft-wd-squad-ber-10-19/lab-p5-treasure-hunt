@@ -1,8 +1,6 @@
 class Game {
   drawGrid() {
     // Iteration 1
-    // Draw the grid
-    // https://p5js.org/reference/#/p5/line
     for (let axisX = 0; axisX < WIDTH; axisX += 100) {
       line(axisX, 0, axisX, HEIGHT);
     }
@@ -11,16 +9,19 @@ class Game {
     }
   }
 
-  loadGameImages() {
+  loadGame() {
     this.player = new Player(100, 100);
-    // we use loadImage to load the images BEFORE actually using it
+    this.treasure = new Treasure()
+    console.log(this.treasure.col)
     this.playerImg = loadImage("assets/character-down.png");
+    this.treasureImg = loadImage("assets/treasure.png");
   }
 
   doRenderSomething() {
     clear();
     frameRate(10);
     image(this.playerImg, this.player.row, this.player.col, 100, 100);
+    image(this.treasureImg, this.treasure.row, this.treasure.col, 100, 100);
   }
 
   playCommand() {
