@@ -1,10 +1,11 @@
 const game = new Game();
 const player = new Player(100,100);
-//const player = new Player(0,0);
+const treasure = new Treasure();
 
 function preload() {
   
 playerImg = loadImage("assets/character-down.png");
+treasureImg = loadImage("assets/treasure.png");
 
 }
 
@@ -17,6 +18,7 @@ function draw() {
   clear();
   game.drawGrid();
   player.drawPlayer();
+  treasure.drawTreasure();
   
 }
 

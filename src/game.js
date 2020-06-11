@@ -20,7 +20,7 @@ class Player {
     this.row = row;
   }
   drawPlayer() {
-    frameRate(10);
+
     image(playerImg, this.col, this.row, 100, 100);
   }
 
@@ -40,3 +40,16 @@ class Player {
   }
 }
 
+class Treasure {
+  constructor(){
+    this.col = Math.floor(Math.random() * 1000);
+    this.row = Math.floor(Math.random() * 1000);
+  }
+  setRandomPosition(){
+    this.col = Math.floor(Math.random() * 1000);
+    this.row = Math.floor(Math.random() * 1000);
+  }
+  drawTreasure() {
+    image(treasureImg, this.col, this.row, 100, 100);
+  }
+}
