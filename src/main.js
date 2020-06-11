@@ -34,4 +34,14 @@ function keyPressed() {
   if (keyCode == 39) {
     player.moveRight();
   }
+  checkScores();
 }
+
+function checkScores() {
+  if(player.col == treasure.col && player.row == treasure.row) {
+    player.score += 1;
+    treasure.setRandomPosition();
+    document.querySelector('h2 span').innerText = player.score;
+  }
+}
+
