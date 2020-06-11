@@ -27,19 +27,20 @@ class Game {
   }
 
   playCommand() {
-    if (keyIsDown(40)) {
+    console.log(width)
+    if (keyIsDown(40) && this.player.col + SQUARE_SIDE < 1000) {
       this.playerImg = loadImage("assets/character-down.png");
       return this.player.moveUp();
     }
-    if (keyIsDown(38)) {
+    if (keyIsDown(38) && this.player.col - SQUARE_SIDE > -100) {
       this.playerImg = loadImage("assets/character-up.png");
       return this.player.moveDown();
     }
-    if (keyIsDown(37)) {
+    if (keyIsDown(37) && this.player.row - SQUARE_SIDE > -100) {
       this.playerImg = loadImage("assets/character-left.png");
       return this.player.moveLeft();
     }
-    if (keyIsDown(39)) {
+    if (keyIsDown(39) && this.player.row + SQUARE_SIDE < 1000) {
       this.playerImg = loadImage("assets/character-right.png");
       return this.player.moveRight();
     }
