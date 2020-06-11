@@ -5,6 +5,6 @@ class Treasure {
 
     }
     setRandomPosition() {
-        return Math.ceil((Math.random() * (HEIGHT)) / 100) * 100
+        return Math.ceil((Math.random() * (WIDTH - SQUARE_SIDE)) / 100) * SQUARE_SIDE
     }
 }

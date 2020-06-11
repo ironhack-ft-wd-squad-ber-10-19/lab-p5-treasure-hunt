@@ -1,12 +1,13 @@
 class Game {
   drawGrid() {
     // Iteration 1
-    for (let axisX = 0; axisX < WIDTH; axisX += 100) {
-      line(axisX, 0, axisX, HEIGHT);
+    for (let i = 0; i <= HEIGHT; i += SQUARE_SIDE) {
+      line(0, i, WIDTH, i);
     }
-    for (let axisY = 0; axisY < HEIGHT; axisY += 100) {
-      line(0, axisY, WIDTH, axisY);
+    for (let i = 0; i <= WIDTH; i += SQUARE_SIDE) {
+      line(i, 0, i, HEIGHT);
     }
+
   }
 
   loadGame() {
@@ -15,13 +16,14 @@ class Game {
     console.log(this.treasure.col)
     this.playerImg = loadImage("assets/character-down.png");
     this.treasureImg = loadImage("assets/treasure.png");
+    this.score = 0
   }
 
   doRenderSomething() {
     clear();
     frameRate(10);
-    image(this.playerImg, this.player.row, this.player.col, 100, 100);
-    image(this.treasureImg, this.treasure.row, this.treasure.col, 100, 100);
+    image(this.playerImg, this.player.row, this.player.col, SQUARE_SIDE, SQUARE_SIDE);
+    image(this.treasureImg, this.treasure.row, this.treasure.col, SQUARE_SIDE, SQUARE_SIDE);
   }
 
   playCommand() {
@@ -43,5 +45,10 @@ class Game {
     }
   }
 
-
+  takeTreasure() {
+    if (this.player.col === this.treasure.col && this.player.row === this.treasure.row) {
+      this.treasure = new Treasure()
+      document.querySelector('#score').innerHTML = `Score: ${++this.score}`
+    }
+  }
 }

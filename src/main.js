@@ -12,6 +12,7 @@ function setup() {
 function draw() {
   game.doRenderSomething();
   game.playCommand()
+  game.takeTreasure()
   game.drawGrid();
 }
 
