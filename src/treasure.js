@@ -1,10 +1,9 @@
 class Treasure {
     constructor() {
-        this.col = this.setRandomPosition()
-        this.row = this.setRandomPosition()
-
+        this.setRandomPosition()
     }
     setRandomPosition() {
-        return Math.ceil((Math.random() * (WIDTH - SQUARE_SIDE)) / 100) * SQUARE_SIDE
+        this.row = Math.ceil((Math.random() * (WIDTH - SQUARE_SIDE)) / 100) * SQUARE_SIDE
+        this.col = Math.ceil((Math.random() * (HEIGHT - SQUARE_SIDE)) / 100) * SQUARE_SIDE
     }
 }
