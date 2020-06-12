@@ -1,92 +1,60 @@
+// this creates a new game using the Game() CLASS.
 const game = new Game();
 
-let playerImage;
-let treasureImage;
+// This is where we declare the variables for the pre-load
+let characterDown;
+let characterLeft;
+let characterRight;
+let characterUp;
+let treasureImg;
 
+// The pre-load give us access to assets used in the game like audio and image files. The loadImage function is P5 specific
 function preload() {
-  playerImage = loadImage("./assets/character-down.png");
-  treasureImage = loadImage("/lab-p5-treasure-hunt/assets/treasure.png");
-  playerRight = loadImage("/lab-p5-treasure-hunt/assets/character-right.png");
-  playerLeft = loadImage("/lab-p5-treasure-hunt/assets/character-left.png");
-  playerUp = loadImage("/lab-p5-treasure-hunt/assets/character-up.png");
+  characterDown = loadImage("assets/character-down.png");
+  characterLeft = loadImage("assets/character-left.png");
+  characterRight = loadImage("assets/character-right.png");
+  characterUp = loadImage("assets/character-up.png");
+  treasureImg = loadImage("assets/treasure.png");
 }
 
+// The setup() function is called once when the program starts. It's used to define initial environment properties such as the canvas size +
 function setup() {
   let canvas = createCanvas(WIDTH, HEIGHT);
   canvas.parent("canvas");
 }
-
+// The draw function renders the page 60 times per second.
 function draw() {
+  // the clear function clears the canvas every time the page loads. Comment it in and out to see what this means.
   clear();
+  // these functions are called every time the page re-renders/is re drawn (60 times a second)
+
+  // 1.2 call the drawGrid() function here to render it
   game.drawGrid();
-  player.drawPlayer();
-  treasure.drawTreasure();
+  // 5.2 call the drawTreasure function
+  game.treasure.drawTreasure();
+  // 3.3 call the player1 draw function
+  game.player1.draw();
+  game.player2.draw();
 }
 
+// 4.1 This function handles interaction on the page. The {&& game.player1.col < 1000 - side} handles if the character is heading off the canvas.
 function keyPressed() {
-  if (keyCode === 40) {
-    player.moveDown();
-  } else if (keyCode === 38) {
-    player.moveUp();
-  } else if (keyCode === 37) {
-    player.moveLeft();
-  } else if (keyCode === 39) {
-    player.moveRight();
+  if (keyCode === 37 && game.player1.col > 0) {
+    game.player1.moveLeft();
+  } else if (keyCode === 39 && game.player1.col < 1000 - side) {
+    game.player1.moveRight();
+  } else if (keyCode === 40 && game.player1.row < 1000 - side) {
+    game.player1.moveDown();
+  } else if (keyCode === 38 && game.player1.row > 0) {
+    game.player1.moveUp();
+  }
+  if (keyCode === 65 && game.player2.col > 0) {
+    game.player2.moveLeft();
+  } else if (keyCode === 68 && game.player2.col < 1000 - side) {
+    game.player2.moveRight();
+  } else if (keyCode === 83 && game.player2.row < 1000 - side) {
+    game.player2.moveDown();
+  } else if (keyCode === 87 && game.player2.row > 0) {
+    game.player2.moveUp();
   }
 }
-class Player {
-  constructor() {
-    this.column = 0;
-    this.row = 0;
-  }
-  drawPlayer() {
-    if (keyCode === 40) {
-      image(playerImage, this.column, this.row, 100, 100);
-    } else if (keyCode === 38) {
-      image(playerUp, this.column, this.row, 100, 100);
-    } else if (keyCode === 37) {
-      image(playerLeft, this.column, this.row, 100, 100);
-    } else if (keyCode === 39) {
-      image(playerRight, this.column, this.row, 100, 100);
-    }
-  }
-  moveDown() {
-    this.row += SQUARE_SIDE;
-  }
-  moveUp() {
-    this.row -= SQUARE_SIDE;
-  }
-  moveLeft() {
-    this.column -= SQUARE_SIDE;
-  }
-  moveRight() {
-    this.column += SQUARE_SIDE;
-    console.log("right");
-    image(playerRight, this.column, this.row, 100, 100);
-  }
-}
-const player = new Player(0, 0);
-
-class Treasure {
-  constructor() {
-    this.column;
-    this.row;
-  }
-
-  setRandomPosition() {
-    this.column = Math.floor(Math.random() * 10) * 100;
-    this.row = Math.floor(Math.random() * 10) * 100;
-  }
-  drawTreasure() {
-    image(treasureImage, this.column, this.row, 100, 100);
-    if (player.column === treasure.column && player.row === treasure.row) {
-      image(treasureImage, this.column, this.row, 100, 100);
-      treasure.setRandomPosition();
-    }
-  }
-}
-
-const treasure = new Treasure();
-treasure.setRandomPosition();
-
-console.log(player.col, player.row);
