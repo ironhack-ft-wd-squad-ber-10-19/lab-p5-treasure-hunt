@@ -14,8 +14,9 @@ function setup() {
 
 function draw() {
   player.render();
-  player.keyPressed();
-  game.drawGrid();
   treasure.render();
+  game.keyPressed();
+  game.drawGrid();
+  game.win();
 }
 

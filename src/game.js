@@ -12,8 +12,30 @@ class Game {
     this.playerImgDefault = loadImage("./assets/character-down.png");
     this.treasureImg = loadImage("./assets/treasure.png");
     }
+    keyPressed () {
+      if (keyIsDown(38)) {
+        this.playerImgDefault = loadImage("assets/character-up.png");
+        player.moveUp();
+      }
+      if (keyIsDown(40)) {
+        this.playerImgDefault = loadImage("assets/character-down.png");
+        player.moveDown();
+      }
+      if (keyIsDown(37)) {
+        this.playerImgDefault = loadImage("assets/character-left.png");
+        player.moveLeft();
+      }
+      if (keyIsDown(39)) {
+        this.playerImgDefault = loadImage("assets/character-right.png");
+        player.moveRight();
+      }
+    }
+    win() {
+      if (player.col === treasure.randomCol && player.row === treasure.randomRow) {
+        treasure.setRandomPosition();
+      }
+    }
 }
-
 
 class Player {
   constructor(col, row) {
@@ -37,25 +59,6 @@ class Player {
     frameRate(10);
     image(game.playerImgDefault, this.col, this.row, 100, 100);
   }
-  keyPressed () {
-    if (keyIsDown(38)) {
-      game.playerImgDefault = loadImage("assets/character-up.png");
-      this.moveUp();
-      
-    }
-    if (keyIsDown(40)) {
-      game.playerImgDefault = loadImage("assets/character-down.png");
-      this.moveDown();
-    }
-    if (keyIsDown(37)) {
-      game.playerImgDefault = loadImage("assets/character-left.png");
-            this.moveLeft();
-    }
-    if (keyIsDown(39)) {
-      game.playerImgDefault = loadImage("assets/character-right.png");
-      this.moveRight();
-    }
-  }
 }
 
 class Treasure {
@@ -64,8 +67,8 @@ class Treasure {
     this.row = row;
   }
   setRandomPosition() {
-    this.randomCol = Math.floor(Math.random()*9)*100;
-    this.randomRow = Math.floor(Math.random()*9)*100;
+    this.randomCol = Math.floor((Math.random()*900)/100) * 100
+    this.randomRow = Math.floor((Math.random()*900)/100) * 100
   }
   render() {
     image(game.treasureImg, this.randomCol, this.randomRow, 100, 100);
