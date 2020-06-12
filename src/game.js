@@ -68,6 +68,7 @@ class Game {
     this.treasure = new Treasure ()
     this.treasureImg = loadImage("assets/treasure.png")
 
+    this.backgroundImg = loadImage("assets/background.jpg")
 
   }
   
@@ -77,6 +78,8 @@ class Game {
     // https://p5js.org/reference/#/p5/line
     clear ()
 
+    background(this.backgroundImg)
+
     for(let j = 0 ; j * SQUARE_SIDE < WIDTH ; j++ ){
         for( let i = 0 ; i * SQUARE_SIDE<HEIGHT;i++){
           line (j*SQUARE_SIDE ,i*SQUARE_SIDE ,(j+1)*SQUARE_SIDE ,i*SQUARE_SIDE)
@@ -85,6 +88,7 @@ class Game {
           line ( j*SQUARE_SIDE,(i+1)*SQUARE_SIDE ,(j+1)*SQUARE_SIDE ,(i+1)*SQUARE_SIDE)          
         }        
     }
+    
     
     image(this.viking.img, this.viking.x, this.viking.y, 100, 100);
     image(this.treasureImg, this.treasure.x, this.treasure.y, 100, 100);
