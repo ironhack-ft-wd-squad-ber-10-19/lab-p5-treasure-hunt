@@ -1,4 +1,8 @@
 class Game {
+  setup() {
+    this.micko = new Player(200, 200);
+    this.gold = new Treasure(400, 400);
+  }
   drawGrid() {
     // Iteration 1
     // Draw the grid
@@ -12,43 +16,5 @@ class Game {
         line(0, y, WIDTH, y)
       }
     }
-  }
-}
-
-
-
-class Player {
-  constructor(row, col) {
-    this.col = col
-    this.row = row
-  }
-  drawPlayer() {
-    image(mickoImg, this.row, this.col, 100, 100)
-  }
-  moveUp() {
-    this.col -= 100;
-  }
-  moveDown() {
-    this.col += 100;
-  }
-  moveLeft() {
-    this.row -= 100;
-  }
-  moveRight() {
-    this.row += 100;
-  }
-}
-
-class Treasure {
-  constructor(){
-    this.col = Math.floor(Math.random() * 1000)
-    this.row = Math.floor(Math.random() * 1000)
-  }
-  // setRandomPosition(){
-  //   this.col = Math.floor(Math.random() * 1000)
-  //   this.row = Math.floor(Math.random() * 1000)
-  // }
-  drawTreasure() {
-    image(treasureImg, this.col, this.row, 100, 100)
   }
 }
