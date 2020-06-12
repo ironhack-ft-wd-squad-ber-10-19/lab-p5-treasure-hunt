@@ -8,6 +8,6 @@ class Treasure {
       this.row = Math.floor(Math.random() * 10) * 100;
     }
     drawTreasure() {
-      image(treasureImg, this.col, this.row, SQUARE_SIDE, SQUARE_SIDE)
+      image(treasureImg, this.row, this.col, SQUARE_SIDE, SQUARE_SIDE)
     }
   }

@@ -1,4 +1,5 @@
 const game = new Game();
+
 let mickoImg;
 let treasureImg;
 let mickoImgUp;

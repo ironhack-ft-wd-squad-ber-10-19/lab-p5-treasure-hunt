@@ -6,10 +6,10 @@ class Player {
     }
     drawPlayer() {
         image(mickoImg, this.row, this.col, SQUARE_SIDE, SQUARE_SIDE)
-        // game.gold.setRandomPosition();
         if(this.col === game.gold.col && this.row === game.gold.row) {
-        game.gold.setRandomPosition();
-        }
+            game.gold.setRandomPosition();
+        };
+        
     }
     // Movement functions
     moveUp() {
