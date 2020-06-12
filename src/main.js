@@ -1,11 +1,18 @@
 const game = new Game();
-const player = new Player(100,100);
+const player = new Player(SQUARE_SIDE,SQUARE_SIDE);
 const treasure = new Treasure();
+let characterUp;
+let characterDown;
+let characterRight;
 
 function preload() {
   
 playerImg = loadImage("assets/character-down.png");
 treasureImg = loadImage("assets/treasure.png");
+characterUp = loadImage("assets/character-up.png");
+characterDown = playerImg;
+characterRight = loadImage("assets/character-right.png");
+characterLeft = loadImage("assets/character-left.png");
 
 }
 
