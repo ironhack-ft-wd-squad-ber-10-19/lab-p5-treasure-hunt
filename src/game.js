@@ -2,6 +2,9 @@ class Player {
   constructor() {
     this.x = (Math.floor(Math.random() * 10))*100;
     this.y = (Math.floor(Math.random() * 10))*100;
+
+    
+
   }
 
   pleaseLoadGameImages() {
@@ -15,9 +18,11 @@ class Player {
 
   moveUp() {
     this.y -= HEIGHT/10;
+    
   }
   moveDown() {
     this.y += HEIGHT/10;
+    
   }
   moveLeft() {
     this.x -= WIDTH/ 10;
@@ -55,6 +60,10 @@ class Game {
     
     this.viking = new Player ()
     this.vikingImg = loadImage("assets/character-down.png")
+    this.vikingImgUp = loadImage("assets/character-up.png")
+    this.vikingImgRight = loadImage("assets/character-right.png")
+    this.vikingImgLeft = loadImage("assets/character-left.png")
+    this.viking.img = this.vikingImg
 
     this.treasure = new Treasure ()
     this.treasureImg = loadImage("assets/treasure.png")
@@ -77,7 +86,7 @@ class Game {
         }        
     }
     
-    image(this.vikingImg, this.viking.x, this.viking.y, 100, 100);
+    image(this.viking.img, this.viking.x, this.viking.y, 100, 100);
     image(this.treasureImg, this.treasure.x, this.treasure.y, 100, 100);
 
     if( this.viking.x == this.treasure.x && this.viking.y == this.treasure.y){
@@ -109,15 +118,18 @@ class Game {
       this.viking.moveRight();
     }
 
-
-    
-    
-    
-    
-
-
   }
 
+
+  reset(){
+    
+    this.viking.x = (Math.floor(Math.random() * 10))*100;
+    this.viking.y = (Math.floor(Math.random() * 10))*100;
+
+    this.treasure.x = (Math.floor(Math.random() * 10))*100;
+    this.treasure.y = (Math.floor(Math.random() * 10))*100;
+
+  }
 }
 
 // END OF CLASSES 
