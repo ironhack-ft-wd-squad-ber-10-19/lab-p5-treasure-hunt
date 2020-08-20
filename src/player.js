@@ -5,19 +5,27 @@ class Player {
     }
     moveUp(){
         console.log('moveUp');
-        this.row -= 1; 
+        if (this.col > 0){
+            this.col -= 1; 
+        }
     }
     moveDown(){
         console.log('moveDown');
-        this.row += 1;
+        if (this.col < 9){
+            this.col += 1; 
+        }
     }
     moveLeft(){
         console.log('moveLeft');
-        this.col -= 1;
+        if (this.row > 0){
+            this.row -= 1; 
+        }
     }
     moveRight(){
         console.log('moveRight');
-        this.col += 1;
+        if (this.row < 9){
+            this.row += 1; 
+        }
     }
 
     draw(img){
