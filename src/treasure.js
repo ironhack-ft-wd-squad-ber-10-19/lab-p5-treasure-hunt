@@ -9,22 +9,21 @@ class Treasure {
     }
 
     setRandomPosition() {
-        // this.col = Math.floor(Math.random() * 1000);
-        // this.row = Math.floor(Math.random() * 1000)
-        let numberCol = Math.floor(Math.random() * 1000);
-        let numberRow = Math.floor(Math.random() * 1000)
-        for (let i = 0; i < 100; i++) {
-            if(numberCol % 100 !== 0) {
-                numberCol--
-            } else {
-                this.col = numberCol;
-            }
-            if(numberRow % 100 !== 0) {
-                numberRow--
-            } else {
-                this.row = numberRow;
-            }
-        }
+        let numberCol = Math.floor(Math.random() * 10);
+        let numberRow = Math.floor(Math.random() * 10)
+        this.row = numberRow * SQUARE_SIDE;
+        this.col = numberCol * SQUARE_SIDE;
+        
+        // if(numberCol % 100 !== 0) {
+        //         numberCol--
+        // } else {
+        //     this.col = numberCol;
+        // }
+        // if(numberRow % 100 !== 0) {
+        //     numberRow--
+        // } else {
+        //     this.row = numberRow;
+        // }
 
     }
 
