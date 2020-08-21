@@ -15,11 +15,22 @@ class Game {
   setupGame() {
     this.player1 = new Player(0,0, 'blue');
     this.player1.image = this.playerImgDown;
+    this.score1 = 0;
+    document.querySelector('#scoreboard1').innerHTML = `Player 1: ${this.score1}`;
     this.player2 = new Player(900, 900, 'red');
     this.player2.image = this.playerImgDown;
+    this.score2 = 0;
+    document.querySelector('#scoreboard2').innerHTML = `Player 2: ${this.score2}`;
     this.treasure = new Treasure();
     this.treasure.image = this.treasureImg;
+    this.setTreasurePosition();
+  }
+
+  setTreasurePosition() {
     this.treasure.setRandomPosition();
+    if((this.treasure.col === this.player1.col && this.treasure.col === this.player1.row) || (this.treasure.col === this.player2.col && this.treasure.col === this.player2.row)) {
+      this.treasure.setRandomPosition();
+    }
   }
 
   drawGrid() {
@@ -43,5 +54,19 @@ class Game {
       document.querySelector('#scoreboard2').innerHTML = `Player 2: ${this.score2}`;
     }
   }
-}
 
+gameIsFinished() {
+    if(this.score1 === 10) {
+      alert('Player 1 has won!');
+      this.score1 = 0;
+      this.score2 = 0;
+      setup();
+      
+    } else if(this.score2 === 10) {
+      alert('Player 2 has won!');
+      this.score2 = 0;
+      this.score1 = 0;
+      setup();
+    }
+  }
+}
