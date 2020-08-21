@@ -6,23 +6,29 @@ class Player {
     }
         
         moveUp(){
-            this.colcol -= 1;
+            this.col -= 100;
+            this.image = loadImage("/assets/character-up.png")
          }
        
         moveDown() {
-            this.col += 1;
-
+            this.col += 100;
+            this.image = loadImage("/assets/character-down.png");
+          
         }
         moveLeft(){
-            this.row -= 1;
+            this.row -= 100;
+            this.image = loadImage("/assets/character-left.png");
         }
         
         moveRight() {    
-            this.row += 1;
+            this.row += 100;
+            this.image = loadImage("/assets/character-right.png");
         } 
 
         draw(){
             console.log("game preload");
-image(this.image, 0,0, 100,100)
-            }
+image(this.image, this.row, this.col, 100, 100)
+        }
+      
     }
+        
