@@ -1,5 +1,4 @@
 const game = new Game();
-let player = new Player();
 
 function preload(){
   game.preloadGame()
@@ -12,23 +11,22 @@ function setup() {
 }
 
 function draw() {
-  game.drawGrid();
   game.drawGame();
 }
 
 function keyPressed() {
-  clear()
   if (keyCode === 38) {
-    player.moveUp();
+    console.log('move up')
+    game.player.moveUp();
   }
   if (keyCode === 40) {
-    player.moveDown();
+    game.player.moveDown();
   }
   if (keyCode === 37) {
-    player.moveLeft();
+    game.player.moveLeft();
   }
 
   if (keyCode === 39) {
-    player.moveRight();
+    game.player.moveRight();
   }
 }

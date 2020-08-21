@@ -18,16 +18,21 @@ class Game {
 
  preloadGame(){
   this.playerImg = loadImage("/assets/character-down.png");
+  this.treasureImg = loadImage('/assets/treasure.png');
 }
 
 setupGame(){
   this.player = new Player();
   this.player.image = this.playerImg;
-
+  this.treasure = new Treasure();
+  this.treasure.image = this.treasureImg;
+  this.treasure.setRandomPosition()
 }
 
 drawGame(){
+  clear()
   this.drawGrid()
   this.player.drawPlayer()
+  this.treasure.drawTreasure()
 }
 }
