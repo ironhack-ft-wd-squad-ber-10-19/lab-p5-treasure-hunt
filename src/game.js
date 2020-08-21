@@ -1,6 +1,7 @@
 class Game {
   constructor() {
-    this.score = 0;
+    this.score1 = 0;
+    this.score2 = 0;
   }
 
   preloadGame() {
@@ -12,8 +13,10 @@ class Game {
   }
 
   setupGame() {
-    this.player = new Player();
-    this.player.image = this.playerImgDown;
+    this.player1 = new Player(0,0, 'blue');
+    this.player1.image = this.playerImgDown;
+    this.player2 = new Player(900, 900, 'red');
+    this.player2.image = this.playerImgDown;
     this.treasure = new Treasure();
     this.treasure.image = this.treasureImg;
     this.treasure.setRandomPosition();
@@ -29,10 +32,15 @@ class Game {
   }
 
   treasureFound() {
-    if(this.player.col === this.treasure.col && this.player.row === this.treasure.row) {
+    if(this.player1.col === this.treasure.col && this.player1.row === this.treasure.row) {
       this.treasure.setRandomPosition();
-      this.score += 1;
-      document.querySelector('#scoreboard').innerHTML = `Score: ${this.score}`;
+      this.score1 += 1;
+      document.querySelector('#scoreboard1').innerHTML = `Player 1: ${this.score1}`;
+    }
+    if(this.player2.col === this.treasure.col && this.player2.row === this.treasure.row) {
+      this.treasure.setRandomPosition();
+      this.score2 += 1;
+      document.querySelector('#scoreboard2').innerHTML = `Player 2: ${this.score2}`;
     }
   }
 }

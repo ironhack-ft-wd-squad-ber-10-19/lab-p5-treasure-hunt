@@ -1,8 +1,9 @@
 class Player {
-    constructor() {
-        this.col = 0;
-        this.row = 0;
+    constructor(col, row, color) {
+        this.col = col;
+        this.row = row;
         this.image;
+        this.color = color;
     }
 
     // preloadPlayer() {
@@ -14,6 +15,8 @@ class Player {
     // }
 
     drawPlayer() {
+        fill(this.color);
+        rect(this.col, this.row, 100, 100);
         image(this.image, this.col, this.row, 100, 100);
     }
 
