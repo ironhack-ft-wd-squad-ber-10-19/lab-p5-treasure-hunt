@@ -7,4 +7,14 @@ body {
 
 h1 {
   font-weight: 100;
+  margin-bottom: 0;
+  padding-bottom: 0;
+
+}
+
+h2 {
+  font-weight: 50;
+  margin-bottom: 50;
+  padding-bottom: 0;
+  
 }
