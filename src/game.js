@@ -5,6 +5,9 @@ class Game {
   }
 
   setup(){
+    this.score = createGraphics(200,HEIGHT);
+    this.score.parent(canvas);
+  
     this.player.setup();
     this.player.preload();
     this.treasure.setup();

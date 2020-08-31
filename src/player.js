@@ -58,8 +58,10 @@ class Player {
     }
   
     if(game.player.col === game.treasure.col && game.player.row === game.treasure.row) {
-      game.player.score++;
-      game.treasure.setRandomPosition();
+      setTimeout(()=>{
+        game.player.score++;
+        game.treasure.setRandomPosition();
+      }, 100);
     }
   
   }
