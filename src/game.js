@@ -26,11 +26,11 @@ class Player {
   }
 
   preload() {
-    this.imageUp = loadImage('/lab-p5-treasure-hunt/assets/character-up.png')
-    this.imageDown = loadImage('/lab-p5-treasure-hunt/assets/character-down.png')
-    this.imageLeft = loadImage('/lab-p5-treasure-hunt/assets/character-left.png')
-    this.imageRight = loadImage('/lab-p5-treasure-hunt/assets/character-Right.png')
-    this.imagerTreasure = loadImage('/lab-p5-treasure-hunt/assets/treasure.png')
+    this.imageUp = loadImage('/assets/character-up.png')
+    this.imageDown = loadImage('/assets/character-down.png')
+    this.imageLeft = loadImage('/assets/character-left.png')
+    this.imageRight = loadImage('/assets/character-Right.png')
+
     this.image = this.imageDown
   }
 
@@ -77,7 +77,7 @@ class Treasure{
   }
 
   preload(){
-    this.image = loadImage('/lab-p5-treasure-hunt/assets/treasure.png');
+    this.image = loadImage('/assets/treasure.png');
   }
 
   draw() {
