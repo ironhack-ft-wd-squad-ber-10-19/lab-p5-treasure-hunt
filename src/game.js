@@ -3,12 +3,15 @@ class Game {
     console.log('preload this game');
     this.playerImage = loadImage('/assets/character-down.png')
     this.treasureImage = loadImage('/assets/treasure.png')
+    this.playerImageRight = loadImage('/assets/character-right.png')
 }
   setupGame(){
     this.player = new Player();
     this.treasure = new Treasure();
     this.player.image = this.playerImage;
     this.treasure.image = this.treasureImage;
+    this.player.image
+
   }
   drawGrid() {
     // line(30, 20, 85, 75);

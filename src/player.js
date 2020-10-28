@@ -13,18 +13,20 @@ class Player {
     //   rect(5, 5, 40, 4x0);
     }
     moveUp(){
-      this.row -= 100 
+      this.row -= 100;
+      this.image = loadImage('/assets/character-up.png')
+      
     }
     moveDown(){
-      this.row += 100
+      this.row += 100;
+      this.image = loadImage('/assets/character-down.png')
     }
     moveLeft(){
       this.col -= 100
+      this.image = loadImage('/assets/character-left.png')
     }
     moveRight(){
-      this.col += 100
+      this.col += 100;
+      this.image = loadImage('/assets/character-right.png')
     }
-    key
-  
-  
   }
