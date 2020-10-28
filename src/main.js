@@ -1,34 +1,50 @@
 const game = new Game();
+const player = new Player(0, 0);
+const treasure = new Treasure();
 
 function preload() {
-  game.preLoadGame();
+  player.preLoadPlayer();
+  treasure.preLoadTreasure();
 }
 
 function setup() {
   let canvas = createCanvas(WIDTH, HEIGHT);
   canvas.parent("canvas");
-  game.setupGame();
+  player.setupPlayer();
+  // treasure.setupTreasure();
+  treasure.setRandomPosition();
 }
 
 function draw() {
+  clear();
   game.drawGrid();
-  game.drawGame();
+  player.drawPlayer();
+  treasure.drawTreasure();
 }
 
 function keyPressed() {
   if (keyIsDown(LEFT_ARROW)) {
-    game.player.col -= 100;
+    player.moveLeft();
+    win()
   }
   if (keyIsDown(RIGHT_ARROW)) {
-    game.player.col += 100;
+    player.moveRight();
+    win()
   }
   if (keyIsDown(UP_ARROW)) {
-    game.player.row -= 100;
+    player.moveUp();
+    win()
   }
   if (keyIsDown(DOWN_ARROW)) {
-    game.player.row += 100;
+    player.moveDown();
+    win()
   }
 }
 
-
-
+function win() {
+  let distance = dist(player.col, player.row, treasure.col, treasure.row);
+  if (distance === 0) {
+    setup();
+    draw();
+  }
+}

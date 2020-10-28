@@ -1,17 +1,5 @@
 class Game {
 
-  preLoadGame() {
-    this.playerImage = loadImage("../assets/character-down.png");
-    this.treasureImage = loadImage("../assets/treasure.png");
-  }
-
-  setupGame() {
-    this.player = new Player(0,0);
-    this.player.image = this.playerImage;
-    this.treasure = new Treasure();
-    this.treasure.image = this.treasureImage;
-  }
-
   drawGrid() {
     let col = 10;
     let row = 10;
@@ -27,11 +15,6 @@ class Game {
       }
     }
   }
-
-  drawGame() {
-    this.player.drawPlayer();
-    this.treasure.drawTreasure();
-  }
 }
 
 
@@ -41,42 +24,61 @@ class Player {
     this.row = row;
     this.image;
   }
+  preLoadPlayer() {
+    this.playerImageDown = loadImage("../assets/character-down.png");
+    this.playerImageUp = loadImage("../assets/character-up.png");
+    this.playerImageLeft = loadImage("../assets/character-left.png");
+    this.playerImageRight = loadImage("../assets/character-right.png");
+  }
+  setupPlayer() {
+    this.image = this.playerImageDown;
+  }
   moveUp() {
     if (this.row > 0) {
-      this.row -= 100;
+      this.row -= 1;
+      this.image = this.playerImageUp;
     }
   }
   moveDown() {
-    if (this.row < 900) {
-      this.row += 100;
+    if (this.row < 9) {
+      this.row += 1;
+      this.image = this.playerImageDown;
     }
   }
   moveLeft() {
-    if (this.column < 0) {
-      this.col -= 100;
+    if (this.col > 0) {
+      this.col -= 1;
+      this.image = this.playerImageLeft;
     }
   }
   moveRight() {
-    if (this.column > 900) {
-      this.col += 100;
+    if (this.col < 9) {
+      this.col += 1;
+      this.image = this.playerImageRight;
     }
   }
   drawPlayer() {
-    image(this.image, this.col, this.row, 100, 100);
+    image(this.image, this.col*SQUARE_SIDE, this.row*SQUARE_SIDE, SQUARE_SIDE, SQUARE_SIDE);
   }
 }
 
 class Treasure {
   constructor() {
-    this.col = Math.floor(Math.random() * 10) * 100;
-    this.row = Math.floor(Math.random() * 10) * 100;
+    this.col;
+    this.row;
     this.image;
   }
-  // setRandomPosition() {
-  //   this.col = Math.floor(Math.random() * 10) * 100;
-  //   this.row = Math.floor(Math.random() * 10) * 100;
+  preLoadTreasure() {
+    this.image = loadImage("../assets/treasure.png");
+  }
+  // setupTreasure() {
+  //   this.treasure.image = this.treasureImage;
   // }
+  setRandomPosition() {
+    this.col = Math.floor(Math.random() * 10);
+    this.row = Math.floor(Math.random() * 10);
+  }
   drawTreasure() {
-    image(this.image, this.col, this.row, 100, 100);
+    image(this.image, this.col*SQUARE_SIDE, this.row*SQUARE_SIDE, SQUARE_SIDE, SQUARE_SIDE);
   }
 }
