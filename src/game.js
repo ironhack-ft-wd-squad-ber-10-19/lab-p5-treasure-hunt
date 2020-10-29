@@ -16,7 +16,11 @@ class Player {
   constructor(row,col) {
     this.col = col;
     this.row = row;
-    this.image = loadImage('../assets/character-down.png');
+    this.image;
+  }
+
+  preLoadPlayer(){
+    this.image= loadImage('../assets/character-down.png');
   }
 
   moveUp(){
