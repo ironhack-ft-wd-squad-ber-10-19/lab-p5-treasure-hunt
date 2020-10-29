@@ -47,16 +47,15 @@ class Player {
     }
   
 
-
   }
 
   class Treasury {
     constructor(col, row) {
         this.cell = 60;
-        this.col = random([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) * this.cell;
-        this.row = random([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]) * this.cell;
+        this.col = random([1, 2, 3, 4, 5, 6, 7, 8, 9]) * this.cell;
+        this.row = random([1, 2, 3, 4, 5, 6, 7, 8, 9]) * this.cell;
         this.image;
-        console.log(`Treasury column is ${this.col}, treasury row is ${this.row}`);
+        console.log(`Treasury column is ${((this.row/60)+1)}, treasury row is ${((this.col/60)+1)}`);
       }
 
     // setRandomPosition(randomCol, randomRow) {
