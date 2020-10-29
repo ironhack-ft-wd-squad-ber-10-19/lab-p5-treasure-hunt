@@ -19,6 +19,8 @@ function draw() {
   game.drawGrid();
   player.draw();
   treasure.drawTreasure();
+  if(player.row===treasure.row&&player.col===treasure.col)
+  treasure.setRandomPosition();
 }
 
 function keyPressed() {

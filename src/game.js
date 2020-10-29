@@ -24,25 +24,24 @@ class Player {
   }
 
   moveUp(){
-    this.row-=1;
+    if(this.row>0) this.row-=1;
     this.image=loadImage('../assets/character-up.png')
     
   }
 
   moveDown(){
-    this.row+=1;
+    if(this.row<9) this.row+=1;
     this.image=loadImage('../assets/character-down.png')
 
   }
 
   moveLeft(){
-    this.col-=1;
+    if(this.col>0)this.col-=1;
     this.image=loadImage('../assets/character-left.png')
-
   }
 
   moveRight(){
-    this.col+=1;
+    if(this.col<9) this.col+=1;
     this.image=loadImage('../assets/character-right.png')
 
   }
