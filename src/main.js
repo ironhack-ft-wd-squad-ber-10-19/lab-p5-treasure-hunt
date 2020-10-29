@@ -58,37 +58,23 @@ function win() {
   let distPlayer1 = dist(player1.col, player1.row, treasure.col, treasure.row);
   let distPlayer2 = dist(player2.col, player2.row, treasure.col, treasure.row);
 
-  let scoreBoardPlayer1 = document.querySelector('body > div.scores > h2.player1 > span').innerText;
-  let scoreBoardPlayer2 = document.querySelector('.player2 > span').innerHTML;
-console.log('SB1', scoreBoardPlayer1)
-console.log('SB2', scoreBoardPlayer2)
+  // let scoreBoardPlayer1 = document.querySelector('body > div.scores > h2.player1 > span').innerText;
+  // let scoreBoardPlayer2 = document.querySelector('.player2 > span').innerHTML;
 
   if (distPlayer1 === 0) {
     player1.score += 1;
-    scoreBoardPlayer1 = player1.score;
+    updateScoreBoard();
     setup();
     draw();
   } else if (distPlayer2 === 0) {
     player2.score += 1;
-    scoreBoardPlayer2 = player2.score;
+    updateScoreBoard();
     setup();
     draw();
   }
 }
 
-// function score() {
-//   let scoreBoardPlayer1 = document.querySelector('.player1 span').innerText;
-//   console.log(scoreBoardPlayer1)
-//   let scoreBoardPlayer2 = document.querySelector('.player2 span').innerText;
-  
-//   // if (this.distPlayer1 === 0) {
-//   //   player1.score += 1;
-//   //   score()
-//   // } else if (this.distPlayer2 === 0) {
-//   //   player2.score += 1;
-//   //   score()
-//   // }
-  
-//   scoreBoardPlayer1 = player1.score;
-//   scoreBoardPlayer2 = player2.score;
-// }
+function updateScoreBoard() {
+  document.querySelector('.player1 > span').innerText = player1.score;
+  document.querySelector('.player2 > span').innerText = player2.score;
+}
