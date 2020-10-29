@@ -33,7 +33,7 @@ class Game {
     // console.log("setup this game");
     this.player = new Player(3, 9);
     this.player.image = this.playerImage;
-    this.treasury = new Treasury(1, 4)
+    this.treasury = new Treasury();
     this.treasury.image = this.treasuryImage;
   }
 
@@ -41,12 +41,18 @@ class Game {
     // console.log("draw this game");
     this.player.drawPlayer();
     this.treasury.drawTreasury();
+    // this.treasury.setRandomPosition();
   }
 
   keyIsPressed(keyCode) {
     //console.log(`key pressed: ${keyCode}`);
     this.player.keyIsPressed(keyCode);
   }
+
+  // setRandomPosition() {
+  //   this.treasury.setRandomPosition();
+  // }
+
 }
 
 
