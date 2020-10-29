@@ -13,7 +13,9 @@ function setup() {
 
 function draw() {
   game.drawGrid();
+  game.win();
   game.drawGame();
+  
 }
 
 function keyPressed(){
@@ -33,12 +35,16 @@ if (keyCode === 40) {
     }
 if (keyCode === 38) {
     game.player.moveUp()
-    } 
+    }
+    
+  } 
+    
   // console.log('test')
-}
 
+
+  
 // const player = new Player(0,0)
 // player.moveDown()
 // player.moveDown()
 // player.moveRight()
-// console.log(player.col, player.row)
+// console.log(player.col, player.row

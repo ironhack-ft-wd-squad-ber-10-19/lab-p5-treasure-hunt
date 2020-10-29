@@ -9,7 +9,7 @@ class Treasure {
     //   clear();
     //   game.drawGrid();
     //   main.draw();
-      image(this.image, this.col, this.row, 100, 100);
+      image(this.image, this.col, this.row, SQUARE_SIDE, SQUARE_SIDE);
     //   rect(5, 5, 40, 4x0);
     }
   }

@@ -11,6 +11,7 @@ class Player {
     //   main.draw();
       image(this.image, this.col, this.row, 100, 100);
     //   rect(5, 5, 40, 4x0);
+      
     }
     moveUp(){
       this.row -= 100;
@@ -29,4 +30,5 @@ class Player {
       this.col += 100;
       this.image = loadImage('/assets/character-right.png')
     }
+    
   }

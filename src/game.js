@@ -3,14 +3,14 @@ class Game {
     console.log('preload this game');
     this.playerImage = loadImage('/assets/character-down.png')
     this.treasureImage = loadImage('/assets/treasure.png')
-    this.playerImageRight = loadImage('/assets/character-right.png')
+    // this.playerImageRight = loadImage('/assets/character-right.png')
 }
   setupGame(){
     this.player = new Player();
     this.treasure = new Treasure();
     this.player.image = this.playerImage;
     this.treasure.image = this.treasureImage;
-    this.player.image
+    // this.player.image
 
   }
   drawGrid() {
@@ -36,12 +36,20 @@ drawGame(){
   // fill('red');
   // rect(this.x, this.y, 55, 55);
   // rect(300, 200, 55, 55);
-  fill('blue');
+  // fill('blue');
   // circle(this.circleX, this.circleY, 50)
   //
   this.player.drawPlayer();
   this.treasure.drawTreasure();
 }
+
+win(){
+  let distance = dist(this.player.col, this.player.row, this.treasure.col, this.treasure.row);
+  console.log(distance);
+  if (distance < 10){
+    alert('Winner');
+    setup();
+    draw();
+  }
 }
-
-
+}
