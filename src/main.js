@@ -44,6 +44,18 @@ if (keyCode === 83) {
     game.player2.moveDown()
     // game.player.image = loadImage('/assets/character-up.png')
     }
+if (keyCode === 87) {
+  game.player2.moveUp()
+  // game.player.image = loadImage('/assets/character-up.png')
+  }
+if (keyCode === 68) {
+  game.player2.moveRight()
+  // game.player.image = loadImage('/assets/character-up.png')
+  }
+if (keyCode === 65) {
+  game.player2.moveLeft()
+  // game.player.image = loadImage('/assets/character-up.png')
+  }
     
   } 
 

@@ -1,15 +1,16 @@
 class Player {
-    constructor(x,y){
-      this.col = 100;
-      this.row = 100;
+    constructor(col, row, img){
+      this.col = col;
+      this.row = row;
       this.score = 0;
-      this.image;
+      this.image = img;
     }
     drawPlayer(){
       fill('blue');
-      clear();
+      // clear();
       game.drawGrid();
-    //   main.draw();
+      // game.drawGame();
+      // draw();
       image(this.image, this.col, this.row, 100, 100);
     //   rect(5, 5, 40, 4x0);
       

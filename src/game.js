@@ -8,13 +8,14 @@ class Game {
     // this.playerImageRight = loadImage('/assets/character-right.png')
 }
   setupGame(){
-    this.player = new Player();
-    this.player2 = new Player();
+    this.player = new Player(0,0, this.playerImage);
+    this.player2 = new Player(300,300, this.player2Image);
     this.treasure = new Treasure();
-    this.player.image = this.playerImage;
-    this.player2.image = this.player2Image;
+    // this.player.image = this.playerImage;
+    // this.player2.image = this.player2Image;
     this.treasure.image = this.treasureImage;
     // this.player.image
+    console.log(this.player)
 
   }
   drawGrid() {
@@ -43,28 +44,49 @@ drawGame(){
   // fill('blue');
   // circle(this.circleX, this.circleY, 50)
   //
+  clear();
+  this.drawGrid();
+  this.player2.drawPlayer();
   this.player.drawPlayer();
-  // this.player2.drawPlayer();
   this.treasure.drawTreasure();
+  
 }
 
 win(){
-  let distance = dist(this.player.col, this.player.row, this.treasure.col, this.treasure.row);
+  let distP1 = dist(this.player.col, this.player.row, this.treasure.col, this.treasure.row);
+  let distP2 = dist(this.player2.col, this.player2.row, this.treasure.col, this.treasure.row)
   
-
-  if (distance < 10){
-    alert('Winner');
-    
+  
+  if (distP1 == 0){
+    console.log('p1 wins')
     setup();
     draw();
-    this.score();
+    // this.player.score1();
+    let p1Score = document.querySelector('#score-p1');
+    let p1Value = Number(p1Score.innerText)
+    p1Score.innerText = p1Value + 1
   }
+  if (distP2 == 0){
+    console.log('p2 wins');
+    setup();
+    draw();
+    // this.player2.score1();
+    let p2Score = document.querySelector('#score-p2');
+    let p2Value = Number(p2Score.innerText)
+    p2Score.innerText = p2Value + 1
+  }
+  
 
 }
 
-score(){ 
-  console.log(1)
+score(player){ 
+  // console.log(1)
   // player.score1();
+  let p1Score = document.querySelector('#score-p${player}');
+  p1Score.innerText += 1
+
+  // let p2Score = document.querySelector('#score-p2');
+  // p2Score.innerText += 1;
 }
   // this.player.score += 1
   // // winCounter += 1;
