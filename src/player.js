@@ -46,6 +46,26 @@ class Player {
         // Decrease by 1 the value of player.col
     }
   
-    // console.log(player.col, player.row) // => 1,2
+
 
   }
+
+  class Treasury {
+    constructor(col, row) {
+        this.cell = 60;
+        this.col = (this.cell * col) - this.cell;
+        this.row = (this.cell * row) - this.cell;
+        this.image;
+      }
+
+    setRandomPosition() {
+
+    }
+
+    drawTreasury() {
+        console.log('Treasury is loading');
+        image(this.image, this.row, this.col, this.cell, this.cell);
+      }
+
+  }
+

@@ -6,6 +6,7 @@ class Game {
 
   drawGrid() {
       //console.log("draw grid");
+      clear();
       background(255, 255, 255);
       stroke(191, 191, 191);
       strokeWeight(2);
@@ -25,17 +26,21 @@ class Game {
   preLoadGame() {
     // console.log("preload this game");
     this.playerImage = loadImage('../assets/character-down.png');
+    this.treasuryImage = loadImage('../assets/treasure.png');
   }
 
   setupGame() {
     // console.log("setup this game");
     this.player = new Player(3, 9);
     this.player.image = this.playerImage;
+    this.treasury = new Treasury(1, 4)
+    this.treasury.image = this.treasuryImage;
   }
 
   drawGame() {
     // console.log("draw this game");
     this.player.drawPlayer();
+    this.treasury.drawTreasury();
   }
 
   keyIsPressed(keyCode) {
