@@ -13,8 +13,8 @@ function setup() {
 
 function draw() {
   game.drawGrid();
-  game.win();
   game.drawGame();
+  game.win();
   
 }
 
@@ -22,23 +22,33 @@ function keyPressed(){
   if (keyCode === 37) {
     // game.x -= 5;
     // console.log('left')
-    game.player.moveLeft()
+    game.player.moveLeft();
+    game.player.image = loadImage('/assets/character-left.png');
     }
 
 if (keyCode === 39) {
     // game.x += 5;
     game.player.moveRight()
+    game.player.image = loadImage('/assets/character-right.png');
     }
 if (keyCode === 40) {
     // game.y += 5;
     game.player.moveDown()
+    game.player.image = loadImage('/assets/character-down.png')
     }
 if (keyCode === 38) {
     game.player.moveUp()
+    game.player.image = loadImage('/assets/character-up.png')
+    }
+if (keyCode === 83) {
+    game.player2.moveDown()
+    // game.player.image = loadImage('/assets/character-up.png')
     }
     
   } 
-    
+
+
+
   // console.log('test')
 
 

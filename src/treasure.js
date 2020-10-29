@@ -1,7 +1,7 @@
 class Treasure {
     constructor(){
-      this.col = 500;
-      this.row = 500;
+      this.col = Math.floor(Math.random()*10) * WIDTH/10;
+      this.row = Math.floor(Math.random()*10) * HEIGHT/10;
       this.image;
     }
     drawTreasure(){
