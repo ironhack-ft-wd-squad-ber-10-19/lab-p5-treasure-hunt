@@ -16,7 +16,7 @@ class Player {
     this.image;
   }
 
-  preload(){
+  preloadPlayer(){
     this.image = loadImage('/assets/character-down.png');
   }
 
@@ -26,16 +26,20 @@ class Player {
 
   moveUp() {
     this.col -= 1;
+    this.image = loadImage('/assets/character-up.png');
   }
 
   moveDown() {
     this.col += 1;
+    this.image = loadImage('/assets/character-down.png');
   }
   moveLeft() {
     this.row -= 1;
+    this.image = loadImage('/assets/character-left.png');
   }
   moveRight() {
     this.row += 1;
+    this.image = loadImage('/assets/character-right.png');
   }  
 }
 
@@ -51,11 +55,20 @@ class Treasure {
     this.col = Math.floor(Math.random()*10) ;
   }
 
-  preload(){
+  preloadTreasure(){
     this.image = loadImage('/assets/treasure.png');
   }
 
   drawTreasure(){
     image(this.image, this.row*SQUARE_SIDE, this.col*SQUARE_SIDE, SQUARE_SIDE, SQUARE_SIDE);
+  }
+}
+
+class Sound {
+  constructor(){
+  this.sound;
+  }
+  preloadSound() {
+  this.sound = loadSound('/sfx.mp3');
   }
 }

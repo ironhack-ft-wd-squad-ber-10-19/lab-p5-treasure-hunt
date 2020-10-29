@@ -1,17 +1,18 @@
 const game = new Game();
 const player = new Player();
 const treasure = new Treasure();
+const sound = new Sound();
 
+function preload(){
+  player.preloadPlayer();
+  treasure.setRandomPosition();
+  treasure.preloadTreasure();
+  sound.preloadSound();
+}
 
 function setup() {
   let canvas = createCanvas(HEIGHT, WIDTH);
   canvas.parent("canvas");
-}
-
-function preload(){
-  player.preload();
-  treasure.setRandomPosition();
-  treasure.preload();
 }
 
 function draw() {
@@ -19,6 +20,10 @@ function draw() {
   game.drawGrid();
   player.drawPlayer();
   treasure.drawTreasure();
+  if (player.col === treasure.col && player.row === treasure.row){
+    sound.sound.play();
+    treasure.setRandomPosition();
+  }
 }
 
 function keyPressed(){
