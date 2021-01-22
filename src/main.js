@@ -14,7 +14,6 @@ function setup() {
   canvas.parent("canvas");
   player1.setupPlayer();
   player2.setupPlayer();
-  // treasure.setupTreasure();
   treasure.setRandomPosition();
 }
 
@@ -27,39 +26,21 @@ function draw() {
 }
 
 function keyPressed() {
-  if (keyCode === 37) {
-    player1.moveLeft();
-  }
-  if (keyCode === 39) {
-    player1.moveRight();
-  }
-  if (keyCode === 38) {
-    player1.moveUp();
-  }
-  if (keyCode === 40) {
-    player1.moveDown();
-  }
-  if (keyCode === 65) {
-    player2.moveLeft();
-  }
-  if (keyCode === 68) {
-    player2.moveRight();
-  }
-  if (keyCode === 87) {
-    player2.moveUp();
-  }
-  if (keyCode === 83) {
-    player2.moveDown();
-  }
+  if (keyCode === 37) player1.moveLeft();
+  if (keyCode === 39) player1.moveRight();
+  if (keyCode === 38) player1.moveUp();
+  if (keyCode === 40) player1.moveDown();
+  if (keyCode === 65) player2.moveLeft();
+  if (keyCode === 68) player2.moveRight();
+  if (keyCode === 87) player2.moveUp();
+  if (keyCode === 83) player2.moveDown();
+  // move();
   win();
 }
 
 function win() {
   let distPlayer1 = dist(player1.col, player1.row, treasure.col, treasure.row);
   let distPlayer2 = dist(player2.col, player2.row, treasure.col, treasure.row);
-
-  // let scoreBoardPlayer1 = document.querySelector('body > div.scores > h2.player1 > span').innerText;
-  // let scoreBoardPlayer2 = document.querySelector('.player2 > span').innerHTML;
 
   if (distPlayer1 === 0) {
     player1.score += 1;

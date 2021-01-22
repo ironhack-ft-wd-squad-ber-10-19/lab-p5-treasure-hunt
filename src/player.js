@@ -11,9 +11,18 @@ class Player {
       this.playerImageLeft = loadImage("../assets/character-left.png");
       this.playerImageRight = loadImage("../assets/character-right.png");
     }
+
     setupPlayer() {
       this.image = this.playerImageDown;
     }
+
+    // move() {
+    //   if (keyCode === 37) this.moveLeft();
+    //   if (keyCode === 39) this.moveRight();
+    //   if (keyCode === 38) this.moveUp();
+    //   if (keyCode === 40) this.moveDown();
+    // }
+
     moveUp() {
       if (this.row > 0) {
         this.row -= 1;
@@ -38,6 +47,7 @@ class Player {
         this.image = this.playerImageRight;
       }
     }
+
     drawPlayer() {
       image(this.image, this.col*SQUARE_SIDE, this.row*SQUARE_SIDE, SQUARE_SIDE, SQUARE_SIDE);
     }
